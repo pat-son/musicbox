@@ -2,7 +2,7 @@ module ApplicationHelper
 
   # Include vertical bar in title only if there is a specific page title
   def full_title(page_title = '')
-    base_title = "Music Box"
+    base_title = "MusicBox"
     if page_title.empty?
       base_title
     else

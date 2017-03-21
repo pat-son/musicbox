@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "MusicBox", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Create", '#' %></li>
+        <li><%= link_to "Browse", '#' %></li>
+        <li><%= link_to "Help", help_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign In", '#' %></li>
+        <li><%= link_to "Register", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
