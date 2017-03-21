@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'help'  => 'home#help'
   get 'contact' => 'home#contact'
   get 'signup' => 'users#new'
+  resources :users
 end
