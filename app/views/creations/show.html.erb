@@ -1,0 +1,4 @@
+<% provide(:title, @creation.name) %>
+<h1><%= @creation.name %></h1>
+<p>By: <%= link_to @creation.user.name, @creation.user %></p>
+<p><%= @creation.data %></p>

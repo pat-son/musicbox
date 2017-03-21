@@ -93,3 +93,9 @@ input, textarea, select, .uneditable-input {
     color: $state-danger-text;
   }
 }
+
+.creation_box {
+  background-color: #ccc;
+  margin: 5px;
+  min-height: 200px;
+}
