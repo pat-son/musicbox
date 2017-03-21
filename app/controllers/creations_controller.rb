@@ -11,7 +11,7 @@ class CreationsController < ApplicationController
     @creation = Creation.new(creation_params)
     @creation.user_id = (current_user).id
     if @creation.save
-      redirect_to creations_path
+      redirect_to @creation
     else
       flash[:danger] = "Invalid information."
       render 'new'

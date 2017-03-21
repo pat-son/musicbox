@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321053615) do
+ActiveRecord::Schema.define(version: 20170321175100) do
 
   create_table "creations", force: :cascade do |t|
     t.text     "data"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170321053615) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "featured"
     t.index ["user_id", "created_at"], name: "index_creations_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_creations_on_user_id"
   end

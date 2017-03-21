@@ -1,4 +1,6 @@
-<div id="creation-<%= creation.id %>" class="creation_box col-xs-12 col-sm-4 col-md-3">
-  <h3 class="creation_title"><%= link_to creation.name, creation %></h3>
-  <p class="creation_user"><%= link_to creation.user.name, creation.user %></p>
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <div id="creation-<%= creation.id %>" class="creation_box">
+    <h3 class="creation_title"><%= link_to creation.name, creation %></h3>
+    <p class="creation_user"><%= link_to creation.user.name, creation.user %></p>
+  </div>
 </div>
