@@ -1,5 +1,9 @@
 <% provide(:title, "Home") %>
 <div class="center jumbotron">
   <p>MusicBox is a solution to facilitate the composition of music for both professionals and novices alike.</p>
-  <p>Check out awesome songs from users below!</p>
+  <% if logged_in? %>
+    <p><%= link_to "Click here", "#" %> to create a song!</p>
+  <% else %>
+    <p><%= link_to "Sign up now", signup_path %> to get started!</p>
+  <% end %>
 </div>

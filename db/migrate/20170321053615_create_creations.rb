@@ -7,5 +7,6 @@ class CreateCreations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_index :creations, [:user_id, :created_at]
   end
 end
