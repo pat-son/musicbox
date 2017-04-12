@@ -1,4 +1,21 @@
 <% provide(:title, @creation.name) %>
+<% if logged_in? %>
+  <%= javascript_tag do %>
+    window.user_gravatar = '<%= gravatar_for current_user %>'
+    window.user_link = '<%= link_to (current_user).name, current_user %>'
+  <% end %>
+<% end %>
+
 <h1><%= @creation.name %></h1>
 <p>By: <%= link_to @creation.user.name, @creation.user %></p>
 <p><%= @creation.data %></p>
+<div style="width: 100%; background-color: grey; height: 500px;">Stub</div>
+<% if logged_in? %>
+  <%= text_area_tag "comment-box", nil, rows: 5 %>
+  <br>
+  <button id="post-comment">Comment</button>
+<% end %>
+
+<div id="comment-section">
+<%= render @comments %>
+</div>

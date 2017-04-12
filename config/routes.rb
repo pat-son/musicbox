@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post   'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  post 'comments/create' => 'comments#create'
+
   resources :users
   resources :creations
 end

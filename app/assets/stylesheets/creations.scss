@@ -1,3 +1,47 @@
 // Place all the styles related to the Creations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#note-board {
+  width: 100%;
+  border: 1px solid black;
+  overflow-x: scroll;
+}
+
+.line-row {
+  height: 20px;
+  width: 2000px;
+  background-size: 20px 20px;
+  background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px)
+}
+
+.space-row {
+  height: 20px;
+  width: 2000px;
+}
+
+#comment-box {
+  margin: 20px 0px;
+  width: 50%;
+}
+
+#comment-section {
+  margin: 20px 0px;
+}
+
+.comment .left-box {
+  display: inline-block;
+}
+
+.comment .right-box {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment .gravatar {
+  margin-right: 20px;
+}

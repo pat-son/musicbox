@@ -1,0 +1,10 @@
+<% user = User.find(comment.user_id) %>
+<div class="comment">
+<div class="left-box">
+  <%= gravatar_for user %>
+</div>
+<div class="right-box">
+  <%= link_to user.name, user %>
+  <p><%= comment.content %></p>
+</div>
+</div>
