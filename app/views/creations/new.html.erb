@@ -1,18 +1,35 @@
 <% provide(:title, "Create") %>
 <% unless logged_in? %>
   <p>You must be logged in to save music. Please <%= link_to "Log In", login_path %> or <%= link_to "Sign Up", signup_path %>.</p>
-<% else %>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-1">
-      <%= form_for(@creation) do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control'%>
-
-        <%= f.label :data %>
-        <%= f.text_field :data, class: 'form-control'%>
-
-        <%= f.submit "Save creation", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
 <% end %>
+
+<div id="create-song">
+  <div id="note-board">
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="space-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+    <div class="line-row"></div>
+    <div class="space-row"></div>
+  </div>
+</div>
+
+<div class="lines">
+</div>

@@ -6,6 +6,7 @@
   width: 100%;
   border: 1px solid black;
   overflow-x: scroll;
+  position: relative;
 }
 
 .line-row {
@@ -19,6 +20,20 @@
   height: 20px;
   width: 2000px;
 }
+
+.note {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 5px;
+}
+
+.ghost {
+  opacity: .5
+}
+
+/** Comments **/
 
 #comment-box {
   margin: 20px 0px;
