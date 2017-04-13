@@ -201,8 +201,7 @@ $(document).ready(function() {
 
         //addNote('C3');
     }
-
-
+        
     function drawNote(note) {
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
@@ -215,7 +214,9 @@ $(document).ready(function() {
             var base_image = new Image();
             base_image.src = images["eighth_note_scaled"];
             base_image.onload = function(){
-                context.drawImage(base_image, xStart + (count * OFFSET), notes[note]);
+                if(xStart + (count * OFFSET) >= 100) //don't render if it would be too far left
+                    context.drawImage(base_image, xStart + (count * OFFSET), notes[note]);
+                //console.log(xStart + (count * OFFSET) );
                 count++;
             };
         }
