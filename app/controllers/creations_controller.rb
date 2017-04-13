@@ -7,6 +7,9 @@ class CreationsController < ApplicationController
     @creation = Creation.new
   end
 
+  def sequence
+  end
+
   def create
     @creation = Creation.new(creation_params)
     @creation.user_id = (current_user).id

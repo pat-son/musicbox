@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'creations' => 'creations#index'
   get 'create' => 'creations#new'
+  get 'sequence' => 'creations#sequence'
 
   get    'login' => 'sessions#new'
   post   'login' => 'sessions#create'
