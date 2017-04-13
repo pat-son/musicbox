@@ -148,7 +148,8 @@ $(document).ready(function() {
 
 
     function addNote(note) {
-        noteStack.push(note);
+    
+        /*noteStack.push(note);
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
 
@@ -163,7 +164,42 @@ $(document).ready(function() {
                 context.drawImage(base_image, xStart + (count * OFFSET), notes[note]);
                 count++;
             };
+        }*/
+        
+        //console.log('@undo note');
+
+        noteStack.push(note);
+
+        var image = $('canvas');
+        $(image).remove(); //replaceWith(canvas);
+
+        var trueImg = $('img');
+        var canvas = document.createElement("canvas");
+        canvas.setAttribute('id', 'myCanvas');
+        canvas.setAttribute('class', 'coveringCanvas');
+
+        $(canvas).insertAfter( $(trueImg) );
+
+        canvas.width = 650;
+        canvas.height = 230;
+        var newImg = new Image();
+        newImg.src = images["eighth_note_scaled"];
+        canvas.getContext("2d").drawImage(newImg, 0, 0);
+
+        var NUM_THAT_FIT = 10;
+        if(noteStack.length <= NUM_THAT_FIT)
+            count = 0;
+        else
+        {   
+            count = noteStack.length - NUM_THAT_FIT;
+            count = -count;
+        }   
+
+        for(var i = 0; i < noteStack.length; i++) {
+            drawNote(noteStack[i]);
         }
+
+        //addNote('C3');
     }
 
 
@@ -208,7 +244,15 @@ $(document).ready(function() {
 
 
         noteStack.pop();
-        count = 0;
+        
+        var NUM_THAT_FIT = 10;
+        if(noteStack.length <= NUM_THAT_FIT)
+            count = 0;
+        else
+        {   
+            count = noteStack.length - NUM_THAT_FIT;
+            count = -count;
+        }  
 
         for(var i = 0; i < noteStack.length; i++) {
             drawNote(noteStack[i]);
