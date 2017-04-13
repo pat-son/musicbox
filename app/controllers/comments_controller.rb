@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         msg = { message: 'Success!', comment_html: render_to_string(@comment) }
-        format.json  { render json: msg, status: 'ok' }
+        format.json  { render json: msg, status: 200 }
       end
     else
       respond_to do |format|

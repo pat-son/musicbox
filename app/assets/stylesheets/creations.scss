@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#creation-name {
+  width: 400px;
+  display: inline-block;
+}
+
+#save-creation {
+  display: inline-block;
+}
+
 #note-board {
   width: 100%;
   border: 1px solid black;
@@ -20,6 +29,17 @@
   .option-selected {
     background-color: grey;
     color: white;
+  }
+
+  #play-button {
+    background-color: white;
+    float: right;
+  }
+
+  #stop-button {
+    background-color: white;
+    float: right;
+    display: none;
   }
 
   button:focus {
@@ -49,6 +69,17 @@
 
 .ghost {
   opacity: .5
+}
+
+#tracker {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  top: 0px;
+  left: 0px;
+  height: 460px;
+  width: 30px;
+  border-left: 2px solid red;
 }
 
 /** Comments **/
