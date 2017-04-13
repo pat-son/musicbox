@@ -98,6 +98,7 @@ $ ->
       allNotes[col] ?= []
       allNotes[col].push(row)
       board.append(newNote)
+      polySynth.triggerAttackRelease(keys[row], "8n")
 
     board.mouseleave () ->
       $('.ghost').remove()
