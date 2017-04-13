@@ -14,10 +14,16 @@ class CreationsController < ApplicationController
     @creation = Creation.new(creation_params)
     @creation.user_id = (current_user).id
     if @creation.save
-      redirect_to @creation
+      respond_to do |format|
+        msg = { message: 'Success!', redirect: creations_path }
+        puts msg
+        format.json  { render json: msg, status: 200 }
+      end
     else
-      flash[:danger] = "Invalid information."
-      render 'new'
+      respond_to do |format|
+        msg = { message: @creation.errors.full_messages }
+        format.json  { render json: msg, status: 500 }
+      end
     end
   end
 
@@ -28,6 +34,6 @@ class CreationsController < ApplicationController
 
   private
     def creation_params
-      params.require(:creation).permit(:name, :data)
+      params.permit(:name, :data)
     end
 end

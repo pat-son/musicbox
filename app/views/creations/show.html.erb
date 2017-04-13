@@ -1,15 +1,19 @@
 <% provide(:title, @creation.name) %>
-<% if logged_in? %>
-  <%= javascript_tag do %>
-    window.user_gravatar = '<%= gravatar_for current_user %>'
-    window.user_link = '<%= link_to (current_user).name, current_user %>'
-  <% end %>
+<%= javascript_tag do %>
+    window.allNotes = JSON.parse('<%= raw @creation.data %>')
 <% end %>
 
 <h1><%= @creation.name %></h1>
 <p>By: <%= link_to @creation.user.name, @creation.user %></p>
-<p><%= @creation.data %></p>
-<div style="width: 100%; background-color: grey; height: 500px;">Stub</div>
+<div id="create-song">
+  <div id="toolbar">
+    <button class="click-option option-selected" id="add-notes" style="visibility: hidden"><i class="fa fa-music"></i></button>
+    <button id="play-button"><i class="fa fa-play"></i>
+    <button id="stop-button"><i class="fa fa-stop"></i>
+  </div>
+  <%= render "note_board" %>
+</div>
+
 <% if logged_in? %>
   <%= text_area_tag "comment-box", nil, rows: 5 %>
   <br>

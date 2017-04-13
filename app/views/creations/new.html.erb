@@ -1,5 +1,8 @@
 <% provide(:title, "Create") %>
-<% unless logged_in? %>
+<% if logged_in? %>
+  <input id="creation-name" class="form-control" name="name" type="text" placeholder="Title">
+  <button id="save-creation" class="btn btn-primary">Save</button>
+<% else %>
   <p>You must be logged in to save music. Please <%= link_to "Log In", login_path %> or <%= link_to "Sign Up", signup_path %>.</p>
 <% end %>
 
@@ -7,32 +10,10 @@
   <div id="toolbar">
     <button class="click-option option-selected" id="add-notes"><i class="fa fa-music"></i></button>
     <button class="click-option" id="delete-notes"><i class="fa fa-trash"></i></button>
+    <button id="play-button"><i class="fa fa-play"></i>
+    <button id="stop-button"><i class="fa fa-stop"></i>
   </div>
-  <div id="note-board">
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="space-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-    <div class="line-row"></div>
-    <div class="space-row"></div>
-  </div>
+  <%= render "note_board" %>
 </div>
 
 <div class="lines">
