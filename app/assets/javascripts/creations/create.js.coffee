@@ -35,8 +35,11 @@ $ ->
 
     playNextNote = () ->
       note = allNotes[noteIndex]
+      tracker.stop()
+      tracker.css({"left": String(noteIndex*30) + "px"})
       tracker.animate({left: "+=30px"}, 250, "linear", (-> return))
       if note
+        note = note.slice()
         if note.length > 5
           note.splice(5, note.length - 5)
         letters = note.map (x) ->
@@ -74,7 +77,7 @@ $ ->
       }
       $('.ghost').remove()
       [noteX, noteY, col, row] = nearestCell(mousePos.left, mousePos.top)
-      if not (allNotes[col] and row in allNotes[col])
+      if (not (allNotes[col] and row in allNotes[col])) and not (mode is "delete")
         ghost = $('<div class="note ghost"></div>')
         ghost.css({top: noteY, left: noteX})
         board.append(ghost)
@@ -104,11 +107,13 @@ $ ->
     #
 
     $("#add-notes").click (e) ->
+      board.removeClass("delete-mode")
       mode = "add"
       $(".option-selected").removeClass("option-selected")
       $(this).addClass("option-selected")
     
     $("#delete-notes").click (e) ->
+      board.addClass("delete-mode")
       mode = "delete"
       $(".option-selected").removeClass("option-selected")
       $(this).addClass("option-selected")

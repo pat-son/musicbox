@@ -47,6 +47,10 @@
   }
 }
 
+#note-board.delete-mode .note {
+  cursor: pointer;
+}
+
 .line-row {
   height: 20px;
   width: 2000px;

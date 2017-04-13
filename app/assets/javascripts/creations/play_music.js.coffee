@@ -38,6 +38,8 @@ $ ->
 
     playNextNote = () ->
       note = allNotes[noteIndex]
+      tracker.stop()
+      tracker.css({"left": String(noteIndex*30) + "px"})
       tracker.animate({left: "+=30px"}, 250, "linear", (-> return))
       if note
         if note.length > 5
