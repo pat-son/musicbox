@@ -9,6 +9,11 @@ $ ->
       cellY = Math.floor(y/20)
       [cellX * 30, cellY * 20]
 
+    addNoteEvents = (note) ->
+      note.click (e) ->
+        e.stopPropagation()
+        console.log "note clicked"
+
     $(document).mousemove (e) ->
       mousePos = {
         left: (e.pageX - offset.left) + board.scrollLeft()
@@ -21,10 +26,14 @@ $ ->
       board.append(ghost)
 
     board.click () ->
+      console.log "board clicked"
       [noteX, noteY] = nearestCell(mousePos.left, mousePos.top)
       newNote = $('<div class="note"></div>')
       newNote.css({top: noteY, left: noteX})
+      addNoteEvents(newNote)
       board.append(newNote)
 
     board.mouseleave () ->
       $('.ghost').remove()
+
+    

@@ -9,6 +9,24 @@
   position: relative;
 }
 
+#toolbar {
+  background-color: lightgrey;
+  padding: 15px 10px;
+
+  .click-option {
+    background-color: white;
+  }
+
+  .option-selected {
+    background-color: grey;
+    color: white;
+  }
+
+  button:focus {
+    outline: 0;
+  }
+}
+
 .line-row {
   height: 20px;
   width: 2000px;
@@ -26,7 +44,7 @@
   width: 30px;
   height: 20px;
   background-color: blue;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .ghost {
