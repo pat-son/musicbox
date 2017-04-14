@@ -1,6 +1,6 @@
 <% provide(:title, @creation.name) %>
 <%= javascript_tag do %>
-    window.allNotes = JSON.parse('<%= raw @creation.data %>')
+    window.data = JSON.parse('<%= raw @creation.data %>')
 <% end %>
 
 <h1><%= @creation.name %></h1>

@@ -1,5 +1,5 @@
 $ ->
-  if namespace.controller is "creations" and namespace.action is "new"
+  if namespace.controller is "creations" and namespace.action is "disabled"
     mousePos = {}
     allNotes = {}
     mode = "add"

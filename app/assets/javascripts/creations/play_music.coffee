@@ -1,5 +1,5 @@
 $ ->
-  if namespace.controller is "creations" and namespace.action in ["show"]
+  if namespace.controller is "creations" and namespace.action in ["disable"]
     board = $("#note-board")
     tracker = $("#tracker")
     tracker.css("height": board.height())

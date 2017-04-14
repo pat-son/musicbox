@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require Tone
+//= require creations/index
 //= require_tree .
