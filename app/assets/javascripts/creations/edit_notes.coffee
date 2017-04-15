@@ -3,6 +3,7 @@ $ ->
     mousePos = {}
     cc = 0 # current channel
     mode = "add"
+    sharp = false
     offset = board.offset()
 
     # Function definitions
@@ -19,7 +20,12 @@ $ ->
           thisNote = $(this)
           col = thisNote[0].dataset.col
           row = parseInt(thisNote[0].dataset.row)
-          channelNotes[col].splice(channelNotes[col].indexOf(row), 1)
+          index = 0
+          for i in channelNotes[col]
+            if i.row == row
+              break
+            index++
+          channelNotes[col].splice(index, 1) # TODO: fix this so deleting notes works again
           if channelNotes[col].length == 0
             delete channelNotes[col]
           thisNote.remove()
@@ -27,10 +33,18 @@ $ ->
     addNoteToBoard = (col, row) ->
       channelNotes[col] ?= []
       noteString = sequencer.keys[row]
+      if sharp
+        noteString = noteString[0] + "#" + noteString[1]
       channelNotes[col].push({note: noteString, col: col, row: row})
-      note = board.addNote(col, row)
+      note = board.addNote(col, row, noteString)
       addNoteEvents(note)
-      sequencer.playOne(sequencer.keys[row])
+      sequencer.playOne(noteString)
+
+    sharpModeOn = ->
+      sharp = true
+
+    sharpModeOff = ->
+      sharp = false
 
     # Event handlers
 
@@ -59,6 +73,16 @@ $ ->
       else if mode is "add"
         addNoteToBoard(col, row)
 
+    $(".key").click (e) ->
+      key = $(this)
+      noteString = key[0].dataset.note
+      if sharp
+        noteString = noteString[0] + "#" + noteString[1]
+      sequencer.playOne(noteString)
+      row = board.children().eq(key.index())
+      row.css({"background-color": "red"})
+      row.stop().animate({backgroundColor: "white"}, 300, ->)
+
     $("#add-notes").click (e) ->
       board.removeClass("delete-mode")
       mode = "add"
@@ -70,21 +94,24 @@ $ ->
       mode = "delete"
       $(".option-selected").removeClass("option-selected")
       $(this).addClass("option-selected")
-      console.log channelNotes
-      console.log data
 
-    $("#save-creation").click () ->
-      $.ajax
-        dataType: "text"
-        url: "/creations"
-        type: "POST"
-        data:
-          data: JSON.stringify(data)
-          name: $("#creation-name").val()
-        success: (res) ->
-          responseObject = JSON.parse(res)
-          console.log responseObject
-          window.location = responseObject.redirect
-        error: (res) ->
-          message = JSON.parse(res.responseText).message
-          alert(message)
+    keyDown = false
+    document.addEventListener("keydown", (e) ->
+      if not keyDown
+        keyDown = true
+        console.log("keyDown", e.keyCode)
+        switch e.keyCode
+          when 16 then sharpModeOn()
+    )
+
+    document.addEventListener("keyup", (e) ->
+      keyDown = false
+      switch e.keyCode
+        when 16 then sharpModeOff()
+    )
+
+    # Main
+
+    if namespace.action is "edit"
+      for note in initialNotes
+        addNoteEvents(note)

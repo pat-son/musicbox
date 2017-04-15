@@ -2,18 +2,22 @@ $ ->
   if namespace.controller is "creations" and namespace.action in ["new", "edit", "show"]
     window.data ?= {}
     if $.isEmptyObject(data)
-      data.config = {}
+      data.config = { numCol: 100, maxCol: 2000}
       data.channels = []
       data.channels[0] = {notes: {}, options: {}}
+    
     window.channelNotes = data.channels[0].notes
     window.board = $("#note-board")
+    sequencer.numCol = data.config.numCol
+    $(".note-row").width(data.config.numCol * 30)
     window.tracker = $("#tracker")
     tracker.css("height": board.height())
 
     # Function definitions
 
-    board.addNote = (col, row) ->
+    board.addNote = (col, row, note = "") ->
       newNote = $('<div class="note" data-col="' + col + '" data-row="' + row + '"></div>')
+      newNote.html(note)
       newNote.css({top: row * 20, left: col * 30})
       board.append(newNote)
       newNote
@@ -28,12 +32,11 @@ $ ->
 
     $("#stop-button").click () ->
       sequencer.stop()
-      tracker.hide()
-      $(this).hide()
-      $("#play-button").show()
 
     # Main
 
+    window.initialNotes = []
     for col of channelNotes
       for note in channelNotes[col]
-        board.addNote(note.col, note.row)
+        initialNotes.push board.addNote(note.col, note.row, note.note)
+

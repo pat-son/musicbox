@@ -11,11 +11,15 @@
   display: inline-block;
 }
 
-#note-board {
-  width: 100%;
+#main-area {
   border: 1px solid black;
+  user-select: none;
+}
+
+#note-board {
   overflow-x: scroll;
   position: relative;
+  margin-left: 30px;
 }
 
 #toolbar {
@@ -51,16 +55,40 @@
   cursor: pointer;
 }
 
+#keyboard {
+  width: 30px;
+  float: left;
+}
+
+.key {
+  width: 30px;
+  height: 20px;
+  border-color: black;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  text-align: center;
+  color: grey;
+  user-select: none;
+  cursor: pointer;
+}
+
+.key:hover {
+  background-color: #e3e3e3;
+  color: #ff3333;
+}
+
 .line-row {
   height: 20px;
-  width: 2000px;
   background-size: 20px 20px;
   background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px)
 }
 
 .space-row {
   height: 20px;
-  width: 2000px;
+}
+
+.note-row {
+  width: 1200px;
 }
 
 .note {
@@ -69,6 +97,8 @@
   height: 20px;
   background-color: blue;
   border-radius: 7px;
+  text-align: center;
+  color: white;
 }
 
 .ghost {

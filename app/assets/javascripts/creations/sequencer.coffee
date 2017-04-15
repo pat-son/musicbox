@@ -2,10 +2,11 @@ $ ->
   if namespace.controller is "creations" and namespace.action in ["new", "edit", "show"]
     class window.Sequencer
       constructor: (@keys) ->
-        @polySynth = new Tone.PolySynth(5, Tone.Synth).toMaster()
+        @synth = new Tone.PolySynth(5, Tone.Synth).toMaster()
         @intervalId = 0
         @noteIndex = 0
         @time = 250
+        @numCol = 100
 
       play: (notes, tracker) ->
         @noteIndex = 0
@@ -16,11 +17,16 @@ $ ->
 
       stop: ->
         clearInterval(@intervalId)
+        $("#tracker").hide()
+        $("#stop-button").hide()
+        $("#play-button").show()
 
       playOne: (note) ->
-        @polySynth.triggerAttackRelease(note, "8n")
+        @synth.triggerAttackRelease(note, "8n")
 
       playNextNote = (notes, tracker) ->
+        if @noteIndex > @numCol
+          @stop()
         note = notes[@noteIndex]
         tracker.stop()
         tracker.css({"left": String(@noteIndex*30) + "px"})
@@ -31,7 +37,7 @@ $ ->
             note.splice(5, note.length - 5)
           letters = note.map (x) ->
             x.note
-          @polySynth.triggerAttackRelease(letters, "8n")
+          @synth.triggerAttackRelease(letters, "8n")
         @noteIndex += 1
 
     
@@ -40,4 +46,3 @@ $ ->
       keys[i] = $(this).attr("id")
 
     window.sequencer = new Sequencer(keys)
-      
