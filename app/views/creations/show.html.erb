@@ -1,10 +1,13 @@
 <% provide(:title, @creation.name) %>
 <%= javascript_tag do %>
-    window.allNotes = JSON.parse('<%= raw @creation.data %>')
+    window.data = JSON.parse('<%= raw @creation.data %>')
 <% end %>
 
 <h1><%= @creation.name %></h1>
 <p>By: <%= link_to @creation.user.name, @creation.user %></p>
+<% if can_edit?(@creation) %>
+  <%= link_to "Edit", edit_creation_path(@creation.id) %>
+<% end %>
 <div id="create-song">
   <div id="toolbar">
     <button class="click-option option-selected" id="add-notes" style="visibility: hidden"><i class="fa fa-music"></i></button>
