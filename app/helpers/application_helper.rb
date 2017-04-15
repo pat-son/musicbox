@@ -9,4 +9,13 @@ module ApplicationHelper
       page_title + ' | ' + base_title
     end
   end
+
+  def can_edit?(obj)
+    u = current_user
+
+    return false if u.nil?
+    return true if u.admin == true
+
+    return obj.user_id == u.id
+  end
 end
