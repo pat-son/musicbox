@@ -1,7 +1,5 @@
 $ ->
   if namespace.controller is "creations" and namespace.action is "show"
-    console.log("Show creation")
-
     $("#post-comment").click ->
       content = $("#comment-box").val()
       $.ajax
