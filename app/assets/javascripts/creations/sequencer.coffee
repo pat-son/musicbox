@@ -7,18 +7,18 @@ $ ->
         @noteIndex = 0
         @time = 250
         @numCol = 100
+        @startNote = 0
 
       play: (notes, tracker) ->
-        @noteIndex = 0
-        tracker.stop()
-        tracker.css({"left": "0px"})
+        @noteIndex = @startNote
+        tracker.stop().css({"left": @startNote * 30})
         ref = this
         @intervalId = setInterval((-> playNextNote.call(ref, notes, tracker)), @time)
 
       stop: ->
         clearInterval(@intervalId)
-        $("#tracker").hide()
         $("#stop-button").hide()
+        tracker.stop().css({"left": @startNote * 30})
         $("#play-button").show()
 
       playOne: (note) ->
