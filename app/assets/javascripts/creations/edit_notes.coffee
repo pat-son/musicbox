@@ -1,5 +1,5 @@
 $ ->
-  if namespace.controller is "creations" and namespace.action in ["new", "edit"] #make window follow tracker while it moves?
+  if namespace.controller is "creations" and namespace.action in ["new", "edit"]
     mousePos = {}
     cc = 0 # current channel
     mode = "add"

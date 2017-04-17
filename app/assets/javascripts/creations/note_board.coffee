@@ -61,7 +61,7 @@ $ ->
       $("#stop-button").show()
 
     $("#stop-button").click () ->
-      sequencer.stop()
+      sequencer.stop(tracker)
 
     $("#tracker-button").click () ->
       if tracker.moveTracker
