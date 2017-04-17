@@ -13,7 +13,6 @@ $ ->
           creation_id: namespace.id
         success: (res) ->
           $("#comment-box").val("")
-          console.log res
           responseObject = JSON.parse(res)
           comment = $(responseObject.comment_html)
           $("#comment-section").prepend(comment)
