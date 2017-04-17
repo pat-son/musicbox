@@ -7,11 +7,6 @@
 <% end %>
 
 <div id="create-song">
-  <div id="toolbar">
-    <button class="click-option option-selected" id="add-notes"><i class="fa fa-music"></i></button>
-    <button class="click-option" id="delete-notes"><i class="fa fa-trash"></i></button>
-    <button id="play-button"><i class="fa fa-play"></i>
-    <button id="stop-button"><i class="fa fa-stop"></i>
-  </div>
+  <%= render "toolbar" %>
   <%= render "note_board" %>
 </div>

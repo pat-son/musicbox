@@ -35,15 +35,18 @@
     color: white;
   }
 
+
   #play-button {
     background-color: white;
-    float: right;
   }
 
   #stop-button {
     background-color: white;
-    float: right;
     display: none;
+  }
+
+  .toolbar-right-group {
+    float: right;
   }
 
   button:focus {
@@ -80,7 +83,7 @@
 .line-row {
   height: 20px;
   background-size: 20px 20px;
-  background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px)
+  background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px);
 }
 
 .space-row {
@@ -91,6 +94,17 @@
   width: 1200px;
 }
 
+.line-row.grid-row {
+  background-size: 30px 20px;
+  background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px),
+                    linear-gradient(to right, transparent, transparent 29px, grey 29px, grey 30px);
+}
+
+.space-row.grid-row {
+  background-size: 30px 20px;
+  background-image: linear-gradient(to right, transparent, transparent 29px, grey 29px, grey 30px);
+}
+
 .note {
   position: absolute;
   width: 30px;
@@ -99,6 +113,7 @@
   border-radius: 7px;
   text-align: center;
   color: white;
+  cursor: default;
 }
 
 .ghost {
@@ -108,11 +123,10 @@
 #tracker {
   position: absolute;
   z-index: 100;
-  display: none;
   top: 0px;
   left: 0px;
   height: 460px;
-  width: 30px;
+  width: 2px;
   border-left: 2px solid red;
 }
 

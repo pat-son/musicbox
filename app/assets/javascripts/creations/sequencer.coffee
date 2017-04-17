@@ -7,30 +7,33 @@ $ ->
         @noteIndex = 0
         @time = 250
         @numCol = 100
+        @startNote = 0
 
       play: (notes, tracker) ->
-        @noteIndex = 0
-        tracker.stop()
-        tracker.css({"left": "0px"})
+        $("#note-board").stop().scrollLeft((tracker.offset().left + $("#note-board").scrollLeft() - $("#note-board").offset().left) - 0.5 * $("#note-board").width())
+        @noteIndex = @startNote
+        tracker.stop().css({"left": @startNote * 30})
         ref = this
         @intervalId = setInterval((-> playNextNote.call(ref, notes, tracker)), @time)
 
-      stop: ->
+      stop: (tracker) ->
         clearInterval(@intervalId)
-        $("#tracker").hide()
         $("#stop-button").hide()
+        tracker.stop().css({"left": @startNote * 30})
+        $("#note-board").stop().scrollLeft((tracker.offset().left + $("#note-board").scrollLeft() - $("#note-board").offset().left) - 0.5 * $("#note-board").width())
         $("#play-button").show()
 
       playOne: (note) ->
         @synth.triggerAttackRelease(note, "8n")
 
       playNextNote = (notes, tracker) ->
-        if @noteIndex > @numCol
-          @stop()
         note = notes[@noteIndex]
-        tracker.stop()
-        tracker.css({"left": String(@noteIndex*30) + "px"})
+        tracker.stop().css({"left": String(@noteIndex*30) + "px"})
         tracker.animate({left: "+=30px"}, 250, "linear", (-> return))
+        scroll = (tracker.offset().left + $("#note-board").scrollLeft() - $("#note-board").offset().left) - 0.5 * $("#note-board").width()
+        $("#note-board").stop().scrollLeft(scroll)
+        if scroll > 0
+          $("#note-board").animate({scrollLeft: "+=30px"}, 250, "linear", (-> return))
         if note
           note = note.slice()
           if note.length > 5
@@ -39,6 +42,8 @@ $ ->
             x.note
           @synth.triggerAttackRelease(letters, "8n")
         @noteIndex += 1
+        if @noteIndex >= @numCol
+          @stop(tracker)
 
     
     keys = {}
