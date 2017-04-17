@@ -1,5 +1,5 @@
 $ ->
-  if namespace.controller is "creations" and namespace.action in ["new", "edit"]
+  if namespace.controller is "creations" and namespace.action in ["new", "edit"] #make window follow tracker while it moves?
     mousePos = {}
     cc = 0 # current channel
     mode = "add"
@@ -117,6 +117,12 @@ $ ->
       else
         addGridLines()
 
+    $("#add-columns").click (e) ->
+      if data.config.numCol + 50 <= 2000
+        data.config.numCol += 50
+        $(".note-row").width(data.config.numCol * 30)
+      else
+        flashMessage("Sorry, but the maximum amount of note columns is 2000.", "danger", 5000)
 
     keyDown = false
     textBoxFocused = false

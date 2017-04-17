@@ -35,19 +35,18 @@
     color: white;
   }
 
-  #tracker-button {
-    float: right;
-  }
 
   #play-button {
     background-color: white;
-    float: right;
   }
 
   #stop-button {
     background-color: white;
-    float: right;
     display: none;
+  }
+
+  .toolbar-right-group {
+    float: right;
   }
 
   button:focus {
