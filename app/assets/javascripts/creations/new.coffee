@@ -20,4 +20,4 @@ $ ->
           window.location = responseObject.redirect
         error: (res) ->
           message = JSON.parse(res.responseText).message
-          alert(message)
+          flashMessage(message, "danger", 5000)
