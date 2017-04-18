@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui/effect.all
+//= require bootstrap
+//= require Tone
+//= require javascript_helpers
+//= require creations/index
 //= require_tree .

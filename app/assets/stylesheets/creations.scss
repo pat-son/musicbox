@@ -1,0 +1,159 @@
+// Place all the styles related to the Creations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#creation-name {
+  width: 400px;
+  display: inline-block;
+}
+
+#save-creation {
+  display: inline-block;
+}
+
+#main-area {
+  border: 1px solid black;
+  user-select: none;
+}
+
+#note-board {
+  overflow-x: scroll;
+  position: relative;
+  margin-left: 30px;
+}
+
+#toolbar {
+  background-color: lightgrey;
+  padding: 15px 10px;
+
+  .click-option {
+    background-color: white;
+  }
+
+  .option-selected {
+    background-color: grey;
+    color: white;
+  }
+
+
+  #play-button {
+    background-color: white;
+  }
+
+  #stop-button {
+    background-color: white;
+    display: none;
+  }
+
+  .toolbar-right-group {
+    float: right;
+  }
+
+  button:focus {
+    outline: 0;
+  }
+}
+
+#note-board.delete-mode .note {
+  cursor: pointer;
+}
+
+#keyboard {
+  width: 30px;
+  float: left;
+}
+
+.key {
+  width: 30px;
+  height: 20px;
+  border-color: black;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  text-align: center;
+  color: grey;
+  user-select: none;
+  cursor: pointer;
+}
+
+.key:hover {
+  background-color: #e3e3e3;
+  color: #ff3333;
+}
+
+.line-row {
+  height: 20px;
+  background-size: 20px 20px;
+  background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px);
+}
+
+.space-row {
+  height: 20px;
+}
+
+.note-row {
+  width: 1200px;
+}
+
+.line-row.grid-row {
+  background-size: 30px 20px;
+  background-image: linear-gradient(to bottom, transparent, transparent 9px, black 9px, black 11px, transparent 11px, transparent 20px),
+                    linear-gradient(to right, transparent, transparent 29px, grey 29px, grey 30px);
+}
+
+.space-row.grid-row {
+  background-size: 30px 20px;
+  background-image: linear-gradient(to right, transparent, transparent 29px, grey 29px, grey 30px);
+}
+
+.note {
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 7px;
+  text-align: center;
+  color: white;
+  cursor: default;
+}
+
+.ghost {
+  opacity: .5
+}
+
+#tracker {
+  position: absolute;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  height: 460px;
+  width: 2px;
+  border-left: 2px solid red;
+}
+
+/** Comments **/
+
+#comment-box {
+  margin: 20px 0px;
+  width: 50%;
+}
+
+#comment-section {
+  margin: 20px 0px;
+}
+
+.comment .left-box {
+  display: inline-block;
+}
+
+.comment .right-box {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment .gravatar {
+  margin-right: 20px;
+}

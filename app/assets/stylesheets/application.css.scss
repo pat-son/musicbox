@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require font-awesome
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+$mborange: #ff9900;
+$mbpurple: #663ffb;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+body {
+  padding-top: 60px;
+}
+
+.navbar {
+  background-color: $mbpurple;
+}
+
+#logo {
+  float: left;
+  padding-right: 20px;
+  color: $mborange;
+  font-size: 2em;
+  padding-top: 3px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  text-decoration: none;
+  color: lighten($mborange, 10%);
+}
+
+.center {
+  text-align: center;
+}
+
+.navbar-nav {
+  float: left;
+}
+
+.navbar-right {
+  float: right !important;
+}
+
+.navbar-inverse .navbar-nav li a {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+  color: #ccc;
+}
+
+.dropdown-menu li a {
+  color: black !important;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.creation_box {
+  background-color: #ccc;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  min-height: 200px;
+}

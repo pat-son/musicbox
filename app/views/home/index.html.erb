@@ -1,3 +1,11 @@
 <% provide(:title, "Home") %>
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="center jumbotron">
+  <p>MusicBox is a solution to facilitate the composition of music for both professionals and novices alike.</p>
+  <% if logged_in? %>
+    <p><%= link_to "Click here", create_path %> to create a song!</p>
+  <% else %>
+    <p><%= link_to "Sign up now", signup_path %> to get started!</p>
+  <% end %>
+</div>
+<h1>Featured Songs</h1>
+<%= render @featured_creations %>

@@ -1,24 +1,12 @@
-# README
+# MusicBox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Music box is a browser-based music creation tool that allows you to play, save, and share music made right on the site.
 
-Things you may want to cover:
+##Installation:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1) Download ruby (we use 2.4.0)
+2) Install bundler (gem install bundler)
+3) Clone the repo
+4) In the musicbox directory, type "bundle install"
+5) Run "rails db:migrate"
+6) Start the server with "rails s"

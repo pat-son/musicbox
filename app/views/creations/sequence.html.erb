@@ -1,0 +1,71 @@
+<script>
+window.images = {
+  "grand_staff": "<%= path_to_image('grand_staff.png') %>",
+  "eighth_note_scaled": "<%= path_to_image('eighth_note_scaled.png') %>"
+}
+</script>
+
+<div class="outsideWrapper">
+  <img id="grand_staff" src="<%= path_to_image('grand_staff.png') %>" class="coveredImage" alt="world"/>
+  <!-- http://stackoverflow.com/questions/4166645/html5-canvas-image-resizing -->
+  <canvas  width="650" height="230" class="coveringCanvas" id="myCanvas"></canvas>
+</div>
+<div id="controls">
+    <h5>Controls</h5>
+    <label for="instrument">Instrument</label>
+    <select id="instrument">
+        <option value="piano">Classic</option>
+        <option value="violin">Triumph</option>
+        <option value="organ">Organ</option>
+        <option value="guitar">Laser</option>
+    </select><br>
+    <label for="tempo">Tempo</label>
+    <select id="tempo">
+        <option value="fast">Fast</option>
+        <option value="medium">Medium</option>
+        <option value="slow">Slow</option>
+    </select><br>
+    <h6>Modifiers</h6><br>
+    
+    <button type="button">Chord - Coming Soon!</button><br>
+    <button id="undo-button" type="button">undo</button> <!-- for testing purposes; delete me! -->
+    <button id="play-button" type="button">play</button> <!--demo purposes-->
+</div>
+
+<div id="note_controls">
+    <div id="lbl-container">
+        <h3>A</h3>
+        <h3>B</h3>
+        <h3>C</h3>
+        <h3>D</h3>
+        <h3>E</h3>
+        <h3>F</h3>
+        <h3>G</h3>
+    </div>
+    <div class="button-container">
+        <button id="a-low" type="button">Low</button>
+        <button id="b-low" type="button">Low</button>
+        <button id="c-low" type="button">Low</button>
+        <button id="d-low" type="button">Low</button>
+        <button id="e-low" type="button">Low</button>
+        <button id="f-low" type="button">Low</button>
+        <button id="g-low" type="button">Low</button>
+        <button id="a-medium" type="button">Medium</button>
+        <button id="b-medium" type="button">Medium</button>
+        <button id="c-medium" type="button">Medium</button>
+        <button id="d-medium" type="button">Medium</button>
+        <button id="e-medium" type="button">Medium</button>
+        <button id="f-medium" type="button">Medium</button>
+        <button id="g-medium" type="button">Medium</button>
+        <button id="a-high" type="button">High</button>
+        <button id="b-high" type="button">High</button>
+        <button id="c-high" type="button">High</button>
+        <button id="d-high" type="button">High</button>
+        <button id="e-high" type="button">High</button>
+        <button id="f-high" type="button">High</button>
+        <button id="g-high" type="button">High</button>
+
+
+    </div>
+
+</div>
