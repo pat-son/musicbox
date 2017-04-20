@@ -16,6 +16,15 @@ module ApplicationHelper
     return false if u.nil?
     return true if u.admin == true
 
-    return obj.user_id == u.id
+    case obj
+    when Creation
+      return obj.user_id == u.id
+    when Comment
+      return obj.user_id == u.id
+    when User
+      return obj.id == u.id
+    else
+      return false
+    end
   end
 end
