@@ -49,6 +49,17 @@ class CreationsController < ApplicationController
     @comments = @creation.comments
   end
 
+  def destroy
+    @creation = Creation.find(params[:id])
+    if helpers.can_edit?(@creation) and @creation.destroy
+      flash[:success] = "Successfully deleted creation."
+      redirect_to creations_path
+    else
+      flash[:danger] = "Could not delete project: " + @creation.errors.full_messages
+      redirect_to [:edit, @creation]
+    end
+  end
+
   private
     def creation_params
       params.permit(:name, :data, :id)
