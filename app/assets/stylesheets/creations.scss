@@ -11,6 +11,10 @@
   display: inline-block;
 }
 
+#delete-creation {
+  margin-top: 20px;
+}
+
 #main-area {
   border: 1px solid black;
   user-select: none;
@@ -143,17 +147,27 @@
 
 .comment .left-box {
   display: inline-block;
+  margin-right: 20px;
 }
 
 .comment .right-box {
+  width: 80%;
   display: inline-block;
   vertical-align: top;
 }
 
-.comment {
-  margin-bottom: 10px;
+.delete-comment-icon {
+  color: grey;
+  transition: color .5s ease;
+  cursor: pointer;
+  float: right;
 }
 
-.comment .gravatar {
-  margin-right: 20px;
+.delete-comment-icon:hover {
+  color: red;
+  transition: color .5s ease;
+}
+
+.comment {
+  margin-bottom: 10px;
 }

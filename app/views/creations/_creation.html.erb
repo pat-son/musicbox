@@ -2,5 +2,6 @@
   <div id="creation-<%= creation.id %>" class="creation_box">
     <h3 class="creation_title"><%= link_to creation.name, creation %></h3>
     <p class="creation_user"><%= link_to creation.user.name, creation.user %></p>
+    <p><%= creation.viewcount %></p>
   </div>
 </div>

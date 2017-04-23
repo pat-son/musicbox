@@ -16,6 +16,19 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    respond_to do |format|
+      if helpers.can_edit?(@comment) and @comment.destroy
+        msg = { message: 'Success!' }
+        format.json  { render json: msg, status: 200 }
+      else
+        msg = { message: @comment.errors.full_messages }
+        format.json  { render json: msg, status: 500 }
+      end
+    end
+  end
+
   private
     def comment_params
       params.permit(:content, :creation_id)

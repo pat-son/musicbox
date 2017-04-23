@@ -76,6 +76,7 @@ $ ->
     for col of channelNotes
       for note in channelNotes[col]
         initialNotes.push board.addNote(note.col, note.row, note.note)
+    sequencer.numCol = data.config.numCol
 
     $('[data-toggle="tooltip"]').tooltip(); 
 
