@@ -1,6 +1,7 @@
 class CreationsController < ApplicationController
   def index
-    @creations = Creation.all
+    @creations = Creation.search(params[:search])
+    @creations = @creations.paginate(page: params[:page], per_page: 36)
   end
   
   def new

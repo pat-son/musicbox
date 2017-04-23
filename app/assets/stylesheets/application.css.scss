@@ -102,3 +102,45 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 20px;
   min-height: 200px;
 }
+
+.search-container {
+  .search-bar {
+    width: calc(100% - 110px);
+  }
+  .search-button {
+    width: 100px;
+  }
+
+}
+
+.page-number-container {
+  text-align: center;
+}
+
+.pagination {
+  font-size: 20px;
+  user-select: none;
+  cursor: default;
+
+  .previous_page, .next_page {
+    margin: 0px 5px;
+  }
+
+  .current {
+    font-style: normal;
+    display: inline-block;
+    background-color: $mborange;
+    border-radius: 100%;
+    color: white;
+    width: 24px;
+    height: 24px;
+    line-height: 1.2;
+  }
+
+  a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+}
