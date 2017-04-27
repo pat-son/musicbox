@@ -4,7 +4,7 @@ class CreationsController < ApplicationController
     sort_types = ["created_at DESC", "created_at ASC", "viewcount DESC", "viewcount ASC"]
     sort = "created_at DESC" unless sort_types.include?(sort)
     @creations = Creation.search(params[:search], sort)
-    @creations = @creations.paginate(page: params[:page], per_page: 36)
+    @creations = @creations.paginate(page: params[:page], per_page: 24)
   end
   
   def new
