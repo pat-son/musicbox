@@ -2,5 +2,6 @@
 // be compiled into application.js
 //
 //= require ./sequencer
+//= require ./sequencerAudio
 //= require ./note_board
 //= require ./edit_notes

@@ -3,6 +3,8 @@ $ ->
     mousePos = {}
     cc = 0 # current channel
     mode = "add"
+    # 0 short, 1 medium, 2 long
+    length = 1
     sharp = false
 
     # Function definitions
@@ -65,6 +67,13 @@ $ ->
       $(".note-row").removeClass("grid-row")
       data.config.grid = false
       $("#grid-lines").removeClass("option-selected")
+      
+    shortModeOn = ->
+      $("#short-note").addClass("option-selected")
+      switch length
+      	when 1 then $("#medium-note").removeClass("option-selected")
+      	when 2 then $("#long-note").removeClass("option-selected")
+      length = 0
 
     # Event handlers
 
@@ -150,6 +159,9 @@ $ ->
         sharp = false
         sharpModeOff()
       keyDown = false
+      
+    $("#short-note").click (e) ->
+      shortModeOn()
 
     $("#creation-name").focus((e) -> textBoxFocused = true)
     $("#creation-name").blur((e) -> textBoxFocused = false)
