@@ -120,6 +120,7 @@ $ ->
     $("#add-columns").click (e) ->
       if data.config.numCol + 50 <= 2000
         data.config.numCol += 50
+        sequencer.numCol = data.config.numCol
         $(".note-row").width(data.config.numCol * 30)
       else
         flashMessage("Sorry, but the maximum amount of note columns is 2000.", "danger", 5000)

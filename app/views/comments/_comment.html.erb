@@ -2,6 +2,11 @@
 <div class="comment">
 <div class="left-box">
   <%= gravatar_for user %>
+  <% if can_edit?(comment) %>
+    <div class="comment-controls">
+      <i class="fa fa-times delete-comment-icon" data-id="<%= comment.id %>"></i>
+    </div>
+  <% end %>
 </div>
 <div class="right-box">
   <%= link_to user.name, user %>

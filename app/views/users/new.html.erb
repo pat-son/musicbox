@@ -11,10 +11,10 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control'%>
 
-      <%= f.label :password %>
+      <%= f.label :password, raw('Password <i class="fa fa-info-circle tooltip-icon" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Password must be at least 6 characters long."></i>') %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>

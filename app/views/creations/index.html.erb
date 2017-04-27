@@ -1,4 +1,14 @@
 <% provide(:title, "Browse Creations") %>
+<div class="search-container">
+<%= form_tag creations_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search], class: "search-bar" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-default search-button" %>
+  <label for="sort" style="margin-right: 10px;">Sort Options: </label><%= select_tag :sort, options_for_select([["Newest", "created_at DESC"], ['Oldest', "created_at ASC"], ["Most Viewed", "viewcount DESC"], ["Least Viewed", "viewcount ASC"]], selected: params[:sort]), class: "search-sort" %>
+<% end %>
+</div>
 <div class="row">
   <%= render @creations %>
+</div>
+<div class="page-number-container">
+  <%= will_paginate @creations, previous_label: raw('<i class="fa fa-arrow-circle-left"></i>'), next_label: raw('<i class="fa fa-arrow-circle-right"></i>') %>
 </div>

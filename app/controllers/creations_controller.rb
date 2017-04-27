@@ -1,6 +1,10 @@
 class CreationsController < ApplicationController
   def index
-    @creations = Creation.all
+    sort = params[:sort]
+    sort_types = ["created_at DESC", "created_at ASC", "viewcount DESC", "viewcount ASC"]
+    sort = "created_at DESC" unless sort_types.include?(sort)
+    @creations = Creation.search(params[:search], sort)
+    @creations = @creations.paginate(page: params[:page], per_page: 36)
   end
   
   def new
@@ -47,6 +51,21 @@ class CreationsController < ApplicationController
   def show
     @creation = Creation.find(params[:id])
     @comments = @creation.comments
+
+    #add view
+    @creation.viewcount += 1
+    @creation.save
+  end
+
+  def destroy
+    @creation = Creation.find(params[:id])
+    if helpers.can_edit?(@creation) and @creation.destroy
+      flash[:success] = "Successfully deleted creation."
+      redirect_to creations_path
+    else
+      flash[:danger] = "Could not delete project: " + @creation.errors.full_messages
+      redirect_to [:edit, @creation]
+    end
   end
 
   private

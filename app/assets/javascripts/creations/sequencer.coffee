@@ -29,11 +29,11 @@ $ ->
       playNextNote = (notes, tracker) ->
         note = notes[@noteIndex]
         tracker.stop().css({"left": String(@noteIndex*30) + "px"})
-        tracker.animate({left: "+=30px"}, 250, "linear", (-> return))
+        tracker.animate({left: "+=30px"}, @time, "linear", (-> return))
         scroll = (tracker.offset().left + $("#note-board").scrollLeft() - $("#note-board").offset().left) - 0.5 * $("#note-board").width()
         $("#note-board").stop().scrollLeft(scroll)
         if scroll > 0
-          $("#note-board").animate({scrollLeft: "+=30px"}, 250, "linear", (-> return))
+          $("#note-board").animate({scrollLeft: "+=30px"}, @time, "linear", (-> return))
         if note
           note = note.slice()
           if note.length > 5
