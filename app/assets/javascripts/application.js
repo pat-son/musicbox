@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/effect.all
+//= require jquery-ui
 //= require bootstrap
 //= require Tone
 //= require javascript_helpers

@@ -52,11 +52,34 @@
   .toolbar-right-group {
     float: right;
   }
+  
+  .toolbar-center-group {
+  	float: right;
+  	margin-right: 300px; 
+  }
+  
+  .ui-selectmenu-button {
+  	box-shadow: 1px 1px 2px;
+  }
+  
+  .ui-selectmenu-text {
+  	color: darkorange;
+  	font-size: 16px;
+  }
+  
+  #instrument-label {
+  	float: left;
+  	font-size: 18px;
+  	margin-right: 5px;
+  	text-shadow: 0.5px 0.5px 1px;
+  	font-style: italic;
+  }
 
   button:focus {
     outline: 0;
   }
 }
+
 
 #note-board.delete-mode .note {
   cursor: pointer;
