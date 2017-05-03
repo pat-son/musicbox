@@ -159,19 +159,19 @@ $ ->
     
     ## instrument menu
     $("#instrument-menu").selectmenu({
-    	width: 125
-    	position: { my : "left+5 center", at: "right center" }
-    	change: (( event, ui ) ->
-    		#if ui.item.value is "0"
-    		#	instrument = 0
-    		#else if ui.item.value is "1"
-    		#	instrument = 1
-    		#else if ui.item.value is "2"
-    		#	instrument = 2
-    		#else if ui.item.value is "3"
-			#	instrument = 3
-			#console.log(instrument)
-    	)
+      width: 125
+      position: { my : "left+5 center", at: "right center" }
+      change: (( event, ui ) ->
+        if ui.item.value is "0"
+          instrument = 0
+        else if ui.item.value is "1"
+          instrument = 1
+        else if ui.item.value is "2"
+          instrument = 2
+        else if ui.item.value is "3"
+          instrument = 3
+        #console.log(instrument)
+      )
     })
 
     # Main
